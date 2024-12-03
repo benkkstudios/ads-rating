@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    id 'maven-publish'
+    id("maven-publish")
 }
 
 android {
@@ -10,7 +10,7 @@ android {
     compileSdk 35
 
     defaultConfig {
-        minSdk 35
+        minSdk 24
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -44,17 +44,4 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.androidx.espresso.core
-}
-
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                from components.release
-                groupId = 'com.github.benkkstudios'
-                artifactId = 'ads-rating'
-                version = '1.1.3'
-            }
-        }
-    }
 }
